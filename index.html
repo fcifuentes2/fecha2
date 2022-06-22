@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <input type="date" id="fecha">  
+  <div>
+      <button onclick="comparar()">Compara fechas</button>
+  </div>
+  <form name="formulario" method="post" action="http://pagina.com/send.php">
+    <!-- Lista de selección -->
+    Selecciona el ciclo deseado:
+    <select name="combo" id="ciclos" onchange="ciclo()">
+      <!-- Opciones de la lista -->
+      <option value="0">Selecciona</option>
+      <option value="4">Ciclo 4-3</option>
+      <option value="10">Ciclo 10-9</option> <!-- Opción por defecto -->
+      <option value="16">ciclo 16-15</option>
+      <option value="22">ciclo 22-21</option>
+      <option value="1">ciclo 1-30</option>
+    </select>
+  </form>
+</body>
+<script>
+    function comparar() {
+     var fecha_input = document.getElementById('fecha').value;
+     console.log(fecha_input)
+     var f=new Date();
+     var mes= (f.getMonth()+1).toString();
+     if (mes.length <= 1) {
+         mes = "0" + mes;
+     }   
+     console.log(mes)
+     var dia = f.getDate().toString();
+     if (dia.length <= 1) {
+        dia = "0" + dia;
+     }
+     console.log(dia)
+    }
+    function ciclo() {
+        var cicloOption = document.getElementById('ciclos').value;
+        console.log(cicloOption)
+    }
+</script>
+</html>
